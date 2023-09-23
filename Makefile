@@ -51,6 +51,11 @@ pull-and-run-property-maestro:
 	docker pull ${LATEST_PROPERTY_MAESTRO}
 	docker run -d --name property-maestro --env-file ./envs/property-maestro.env --network=${NETWORK} --restart always ${LATEST_PROPERTY_MAESTRO}
 
+## Pull and run property API
+pull-and-run-property-api:
+	docker pull ${LATEST_PROPERTY_API}
+	docker run -d --name property-api --env-file ./envs/property-api.env --network=${NETWORK} --restart always ${LATEST_PROPERTY_API}
+
 ## Remove address service
 remove-address-service:
 	docker stop address-service
@@ -70,3 +75,8 @@ remove-property-crawler:
 remove-property-maestro:
 	docker stop property-maestro
 	docker rm property-maestro
+
+## Remove property api
+remove-property-api:
+	docker stop property-api
+	docker rm property-api
